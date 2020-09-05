@@ -1,0 +1,17 @@
+{
+  "languageserver": {
+    "elmLS": {
+      "command": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-language-server.cmd",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm.cmd",  // Optional
+        "elmFormatPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-format.cmd",  // Optional
+        "elmTestPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-test.cmd",  // Optional
+        "elmAnalyseTrigger": "change"
+      }
+    }
+  },
+  // If you use neovim you can enable codelenses with this
+  "codeLens.enable": true
+}
