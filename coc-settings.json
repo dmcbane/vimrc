@@ -1,13 +1,13 @@
 {
   "languageserver": {
     "elmLS": {
-      "command": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-language-server.cmd",
+      "command": "~/.npm-global/bin/elm-language-server",
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"],
       "initializationOptions": {
-        "elmPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm.cmd",  // Optional
-        "elmFormatPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-format.cmd",  // Optional
-        "elmTestPath": "C:\\Users\\dalem\\AppData\\Roaming\\npm\\elm-test.cmd",  // Optional
+        "elmPath": "~/.npm-global/bin/elm",  // Optional
+        "elmFormatPath": "~/.npm-global/bin/elm-format",  // Optional
+        "elmTestPath": "~/.npm-global/bin/elm-test",  // Optional
         "elmAnalyseTrigger": "change"
       }
     }
