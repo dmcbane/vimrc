@@ -23,8 +23,10 @@ call plug#begin()
 " Use release branch (recommended)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'theJian/elm.vim'
-Plug 'ayu-theme/ayu-vim'
-
+"" Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -43,9 +45,12 @@ set updatetime=300
 set shortmess+=c
 
 set termguicolors
+"" set background=dark
+"" let ayucolor="mirage"
+"" color ayu
+
 set background=dark
-let ayucolor="mirage"
-color ayu
+colorscheme PaperColor
 
 
 let mapleader=','
@@ -185,3 +190,5 @@ autocmd Filetype elm setlocal ts=4 sw=4 sts=4 expandtab nowrap
 
 autocmd Filetype html setlocal ts=4 sw=4 sts=0 expandtab
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
