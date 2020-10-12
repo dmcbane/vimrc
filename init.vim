@@ -15,8 +15,9 @@ syntax on
 
 
 " Install vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let b:configpath = fnamemodify(stdpath('config') . '/autoload/plug.vim', ':p')
+if empty(glob(b:configpath))
+  execute 'silent !curl -fLo' shellescape(b:configpath) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -25,10 +26,9 @@ call plug#begin()
 " Use release branch (recommended)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'theJian/elm.vim'
-"" Plug 'ayu-theme/ayu-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -52,8 +52,39 @@ set termguicolors
 "" color ayu
 
 set background=dark
-colorscheme PaperColor
+colorscheme solarized
 
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left':  [ [ 'mode', 'paste' ],
+      \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+      \            ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ]
+      \            ]
+      \ },
+      \ 'component': { 'charvaluehex': '0x%B' },
+      \ 'component_function': { 'fileformat': 'LightlineFileformat',
+      \                         'filetype': 'LightlineFiletype',
+      \                         'gitbranch': 'fugitive#head',
+      \                         'readonly': 'LightlineReadonly',
+      \                       },
+      \ }
+
+" don't show readonly for help buffers
+function! LightlineReadonly()
+    return &readonly && &filetype !=# 'help' ? 'RO' : ''
+endfunction
+" don't show fileformat for narrow windows
+function! LightlineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+" don't show filetype for narrow windows
+function! LightlineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
 let mapleader=','
 
@@ -209,6 +240,3 @@ let g:ycm_semantic_triggers = {
 autocmd Filetype elm setlocal ts=4 sw=4 sts=4 expandtab nowrap
 
 autocmd Filetype html setlocal ts=4 sw=4 sts=0 expandtab
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
