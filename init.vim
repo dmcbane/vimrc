@@ -15,9 +15,9 @@ syntax on
 
 
 " Install vim-plug
-if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
-  " silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  execute 'silent !curl -fLo' shellescape(fnamemodify('~/AppData/Local/nvim/autoload/plug.vim ', ':p')) '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+let b:configpath = fnamemodify(stdpath('config') . '/autoload/plug.vim', ':p')
+if empty(glob(b:configpath))
+  execute 'silent !curl -fLo' shellescape(b:configpath) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
