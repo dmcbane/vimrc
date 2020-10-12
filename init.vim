@@ -7,6 +7,8 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start " Fix backspace indent
+set clipboard=unnamedplus
+
 
 filetype plugin indent on
 syntax on
@@ -14,7 +16,8 @@ syntax on
 
 " Install vim-plug
 if empty(glob('~/AppData/Local/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  " silent !curl -fLo ~/AppData/Local/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  execute 'silent !curl -fLo' shellescape(fnamemodify('~/AppData/Local/nvim/autoload/plug.vim ', ':p')) '--create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -23,8 +26,9 @@ call plug#begin()
 " Use release branch (recommended)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'theJian/elm.vim'
-Plug 'ayu-theme/ayu-vim'
-
+Plug 'altercation/vim-colors-solarized'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -44,9 +48,39 @@ set shortmess+=c
 
 set termguicolors
 set background=dark
-let ayucolor="mirage"
-color ayu
+colorscheme solarized
 
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left':  [ [ 'mode', 'paste' ],
+      \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+      \            ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'charvaluehex', 'fileformat', 'fileencoding', 'filetype' ]
+      \            ]
+      \ },
+      \ 'component': { 'charvaluehex': '0x%B' },
+      \ 'component_function': { 'fileformat': 'LightlineFileformat',
+      \                         'filetype': 'LightlineFiletype',
+      \                         'gitbranch': 'fugitive#head',
+      \                         'readonly': 'LightlineReadonly',
+      \                       },
+      \ }
+
+" don't show readonly for help buffers
+function! LightlineReadonly()
+    return &readonly && &filetype !=# 'help' ? 'RO' : ''
+endfunction
+" don't show fileformat for narrow windows
+function! LightlineFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+" don't show filetype for narrow windows
+function! LightlineFiletype()
+    return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
 
 let mapleader=','
 
@@ -168,7 +202,25 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+""" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 let g:elm_detailed_complete = 1
 let g:elm_format_autosave = 1
@@ -184,4 +236,3 @@ let g:ycm_semantic_triggers = {
 autocmd Filetype elm setlocal ts=4 sw=4 sts=4 expandtab nowrap
 
 autocmd Filetype html setlocal ts=4 sw=4 sts=0 expandtab
-
