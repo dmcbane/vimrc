@@ -1,13 +1,10 @@
 {
   "languageserver": {
     "elmLS": {
-      "command": "~/.npm-global/bin/elm-language-server",
+      "command": "elm-language-server",
       "filetypes": ["elm"],
       "rootPatterns": ["elm.json"],
       "initializationOptions": {
-        "elmPath": "~/.npm-global/bin/elm",  // Optional
-        "elmFormatPath": "~/.npm-global/bin/elm-format",  // Optional
-        "elmTestPath": "~/.npm-global/bin/elm-test",  // Optional
         "elmAnalyseTrigger": "change"
       }
     }
