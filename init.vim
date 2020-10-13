@@ -15,8 +15,8 @@ syntax on
 
 
 " Install vim-plug
-" let b:configpath = fnamemodify(stdpath('config') . '/autoload/plug.vim', ':p') " portable neovim path
-let b:configpath = fnamemodify('~/.vim/autoload/plug.vim', ':p') " linux/osx vim path
+let b:configpath = fnamemodify(stdpath('config') . '/autoload/plug.vim', ':p') " portable neovim path
+" let b:configpath = fnamemodify('~/.vim/autoload/plug.vim', ':p') " linux/osx vim path
 " let b:configpath = fnamemodify('~/vimfiles/autoload/plug.vim', ':p') " windows vim path
 if empty(glob(b:configpath))
   execute 'silent !curl -fLo' shellescape(b:configpath) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
