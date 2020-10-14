@@ -15,7 +15,9 @@ syntax on
 
 
 " Install vim-plug
-let b:configpath = fnamemodify(stdpath('config') . '/autoload/plug.vim', ':p')
+let b:configpath = fnamemodify(stdpath('config') . '/autoload/plug.vim', ':p') " portable neovim path
+" let b:configpath = fnamemodify('~/.vim/autoload/plug.vim', ':p') " linux/osx vim path
+" let b:configpath = fnamemodify('~/vimfiles/autoload/plug.vim', ':p') " windows vim path
 if empty(glob(b:configpath))
   execute 'silent !curl -fLo' shellescape(b:configpath) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -114,15 +116,11 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
 
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
