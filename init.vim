@@ -32,6 +32,10 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 
+if !has('nvim')
+    Plug 'rhysd/vim-healthcheck'
+endif
+
 call plug#end()
 
 " Some servers have issues with backup files, see #649
@@ -249,3 +253,69 @@ if has("gui_running")
         set guifont=Noto_Mono_for_Powerline:h16:cANSI:qDRAFT
     endif
 endif
+
+if !has('nvim')
+    set pythonthreedll=python39.dll
+endif
+
+function! UUIDtoBuffer()
+pyx << EOF
+import vim
+from uuid import uuid4
+vim.current.buffer.append(str(uuid4()), vim.current.window.cursor[0])
+EOF
+endfunction
+
+command! -nargs=0 UUID call UUIDtoBuffer()
+
+function! UUIDtoClipboard()
+pyx << EOF
+import vim
+from uuid import uuid4
+vim.command("let @+='%s'" % (str(uuid4())))
+EOF
+endfunction
+
+command! -nargs=0 CopyUUID call UUIDtoClipboard()
+
+function! CurrentDatetimeUUIDtoBuffer()
+pyx << EOF
+import vim
+from datetime import datetime
+from uuid import uuid4
+now = datetime.now()
+now_str = now.strftime("%Y%m%d%H%M%S")
+uid = str(uuid4())
+vim.current.buffer.append(now_str + "_" + uid, vim.current.window.cursor[0])
+EOF
+endfunction
+
+command! -nargs=0 DatetimeUUID call CurrentDatetimeUUIDtoBuffer()
+
+function! CurrentDatetimeUUIDtoClipboard()
+pyx << EOF
+import vim
+from datetime import datetime
+from uuid import uuid4
+now = datetime.now()
+now_str = now.strftime("%Y%m%d%H%M%S")
+uid = str(uuid4())
+vim.command("let @+='%s'" % (now_str + "_" + uid))
+EOF
+endfunction
+
+command! -nargs=0 CopyDatetimeUUID call CurrentDatetimeUUIDtoClipboard()
+
+nnoremap <Leader>v :e $MYVIMRC<cr>
+
+" Reloads vimrc after saving but keep cursor position
+if !exists('*ReloadVimrc')
+    fun! ReloadVimrc()
+        let save_cursor = getcurpos()
+        source $MYVIMRC
+        call setpos('.', save_cursor)
+    endfun
+endif
+autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
+
+set path+=**
