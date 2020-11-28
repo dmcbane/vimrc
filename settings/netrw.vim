@@ -4,9 +4,9 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-" automatically open a project drawer
-augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * :Vexplore
-augroup END
+"" " automatically open a project drawer
+"" augroup ProjectDrawer
+""     autocmd!
+""     autocmd VimEnter * :Vexplore
+"" augroup END
 

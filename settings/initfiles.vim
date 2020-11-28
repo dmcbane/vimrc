@@ -1,25 +1,11 @@
-
 function! EditInitializationFiles()
     exe 'edit $MYVIMRC'
-    if has('nvim')
-        if exists(fnamemodify(stdpath('config') . '/settings', ':p'))
-            for s:fpath in split(globpath(fnamemodify(stdpath('config') .
-                '/settings', ':p'), '*.vim'), '\n')
-                exe 'tabnew' s:fpath
-            endfor
-        endif
-    else
-        if isdirectory(expand('~/.vim/settings'))
-            for s:fpath in split(globpath(expand('~/.vim/settings'), '*.vim'), '\n')
-                exe 'tabnew' s:fpath
-            endfor
-        endif
-        if isdirectory(expand('~/vimfiles/settings'))
-            for s:fpath in split(globpath(expand('~/vimfiles/settings'), '*.vim'), '\n')
-                exe 'tabnew' s:fpath
-            endfor
-        endif
-    endif
+    let l:configpath = fnamemodify($MYVIMRC, ':p:h')
+    let l:vim_settings = l:configpath .. '/settings'
+
+    for s:fpath in split(globpath(l:vim_settings, '*.vim'), '\n')
+        exe 'tabnew' s:fpath
+    endfor
 endfunction
 
 command! -nargs=0 EditInitFiles call EditInitializationFiles()

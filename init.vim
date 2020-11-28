@@ -1,5 +1,8 @@
 " General Settings
 set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+
 set hidden " TextEdit might fail if hidden is not set.
 set encoding=utf-8
 set tabstop=4
@@ -23,6 +26,11 @@ set updatetime=300
 " Don't pass message to |ins-completion-menu|.
 set shortmess+=c
 
+" setup MS Windows key bahaviors with the exception of allowing arrow keys to
+" extend the selection in visual mode
+behave mswin
+set keymodel-=stopsel
+
 if !has('nvim')
     set pythonthreedll=python39.dll
 endif
@@ -38,14 +46,14 @@ syntax on
 " linux/osx vim path
 " let b:configpath = fnamemodify('~/.vim', ':p')
 " windows vim path
-let b:configpath = fnamemodify('~/vimfiles', ':p')
+let s:configpath = fnamemodify($MYVIMRC, ':p:h')
 
-let b:plugfilename = b:configpath . '/autoload/plug.vim'
-let b:vim_settings = b:configpath . '/settings'
+let s:plugfilename = s:configpath .. '/autoload/plug.vim'
+let s:vim_settings = s:configpath .. '/settings'
 
 
-if empty(glob(b:plugfilename))
-  execute 'silent !curl -fLo' shellescape(b:configpath) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob(s:plugfilename))
+  execute 'silent !curl -fLo' shellescape(s:plugfilename) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -65,10 +73,10 @@ let mapleader=','
 
 " Function to source all .vim files in directory
 function! SourceDirectory(file)
-    for s:fpath in split(globpath(a:file, '*.vim'), '\n')
-        exe 'source' s:fpath
+    for l:fpath in split(globpath(a:file, '*.vim'), '\n')
+        exe 'source' l:fpath
     endfor
 endfunction
 
-call SourceDirectory(b:vim_settings)
+call SourceDirectory(s:vim_settings)
 

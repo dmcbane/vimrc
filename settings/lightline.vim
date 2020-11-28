@@ -1,4 +1,3 @@
-
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
