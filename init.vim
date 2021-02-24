@@ -68,8 +68,6 @@ endif
 call plug#begin()
 
 " Use release branch (recommended)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'theJian/elm.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
