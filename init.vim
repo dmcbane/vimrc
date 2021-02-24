@@ -1,7 +1,9 @@
 " General Settings
 set nocompatible
-"" source $VIMRUNTIME/vimrc_example.vim
-"" source $VIMRUNTIME/mswin.vim
+if has('win32')
+  source $VIMRUNTIME/vimrc_example.vim
+  source $VIMRUNTIME/mswin.vim
+endif
 
 set hidden " TextEdit might fail if hidden is not set.
 set encoding=utf-8
@@ -26,13 +28,15 @@ set updatetime=300
 " Don't pass message to |ins-completion-menu|.
 set shortmess+=c
 
-" setup MS Windows key bahaviors with the exception of allowing arrow keys to
-" extend the selection in visual mode
-"" behave mswin
-"" set keymodel-=stopsel
+if has('win32')
+  " setup MS Windows key bahaviors with the exception of allowing arrow keys to
+  " extend the selection in visual mode
+  behave mswin
+  set keymodel-=stopsel
 
-if !has('nvim')
+  if !has('nvim')
     set pythonthreedll=python39.dll
+  endif
 endif
 
 set path+=**
@@ -41,12 +45,16 @@ filetype plugin indent on
 syntax on
 
 " Install vim-plug
-" portable neovim path
-"" let s:configpath = fnamemodify(stdpath('config'), ':p')
-" linux/osx vim path
-let s:configpath = fnamemodify('~/.vim', ':p')
-" windows vim path
-"" let s:configpath = fnamemodify($MYVIMRC, ':p:h')
+if has('nvim')
+  " portable neovim path
+  let s:configpath = fnamemodify(stdpath('config'), ':p')
+elseif has('macunix') || has('unix') || has('win32unix')
+  " linux/osx vim path
+  let s:configpath = fnamemodify('~/.vim', ':p')
+elseif has('win32')
+  " windows vim path
+  let s:configpath = fnamemodify($MYVIMRC, ':p:h')
+end
 
 let s:plugfilename = s:configpath .. '/autoload/plug.vim'
 let s:vim_settings = s:configpath .. '/settings'
