@@ -67,17 +67,10 @@ endif
 
 call plug#begin()
 
-" Conjure
-Plug 'Olical/conjure', {'tag': 'v4.3.1'}
-" Conjure support - jack-in with nrepl dependencies
-Plug 'tpope/vim-dispatch'
-Plug 'clojure-vim/vim-jack-in'
-if has('nvim')
-    Plug 'radenling/vim-dispatch-neovim'
-endif
-" Conjure code analysis
-Plug 'dense-analysis/ale'
-
+" Use release branch (recommended)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'theJian/elm.vim'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
