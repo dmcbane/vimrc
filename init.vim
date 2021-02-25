@@ -80,6 +80,7 @@ Plug 'dense-analysis/ale'
 
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
