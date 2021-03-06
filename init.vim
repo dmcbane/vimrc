@@ -1,6 +1,6 @@
 " General Settings
 set nocompatible
-if has('win32')
+if has('win32') && !has('nvim')
   source $VIMRUNTIME/vimrc_example.vim
   source $VIMRUNTIME/mswin.vim
 endif
@@ -68,12 +68,11 @@ endif
 call plug#begin()
 
 " Use release branch (recommended)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'theJian/elm.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
