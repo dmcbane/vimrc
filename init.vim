@@ -74,6 +74,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 if has('nvim')
     Plug 'radenling/vim-dispatch-neovim'
+    Plug 'kyazdani42/nvim-web-devicons' "for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
 endif
 " Conjure code analysis
 Plug 'dense-analysis/ale'
@@ -87,6 +89,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 let mapleader=','
+
+" should we perform GUI setup?
+if has('termguicolors')
+    set termguicolors
+endif
+let g:use_gui = exists('g:neovide') || has('gui_running') || (has('termguicolors') && &termguicolors)
 
 " Function to source all .vim files in directory
 function! SourceDirectory(file)
