@@ -6,7 +6,7 @@ if (exists("g:use_gui") && g:use_gui)
         " mac
     elseif has("gui_win32")
         " windows
-        set guifont=Meslo\ LG\ S\ for\ Powerline:h20
+        set guifont=Noto_Mono_for_Powerline:h16:cANSI:qDRAFT
     endif
 endif
 
