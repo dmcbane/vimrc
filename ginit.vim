@@ -1,1 +1,1 @@
-GuiFont DejaVu Sans Mono for Powerline:h16
+set guifont=Meslo\ LG\ S\ for\ Powerline:h20

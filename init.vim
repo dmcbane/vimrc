@@ -80,6 +80,12 @@ call plug#end()
 
 let mapleader=','
 
+" should we perform GUI setup?
+if has('termguicolors')
+    set termguicolors
+endif
+let g:use_gui = exists('g:neovide') || has('gui_running') || (has('termguicolors') && &termguicolors)
+
 " Function to source all .vim files in directory
 function! SourceDirectory(file)
     for l:fpath in split(globpath(a:file, '*.vim'), '\n')

@@ -1,0 +1,3 @@
+if exists('g:neovide')
+    let g:neovide_cursor_vfx_mode="railgun"
+endif
