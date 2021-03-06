@@ -1,8 +1,8 @@
 " General Settings
 set nocompatible
-if has('win32')
-  source $VIMRUNTIME/vimrc_example.vim
-  source $VIMRUNTIME/mswin.vim
+if has('win32') && !has('nvim')
+    source $VIMRUNTIME/vimrc_example.vim
+    source $VIMRUNTIME/mswin.vim
 endif
 
 set hidden " TextEdit might fail if hidden is not set.
@@ -29,14 +29,14 @@ set updatetime=300
 set shortmess+=c
 
 if has('win32')
-  " setup MS Windows key bahaviors with the exception of allowing arrow keys to
-  " extend the selection in visual mode
-  behave mswin
-  set keymodel-=stopsel
+    " setup MS Windows key bahaviors with the exception of allowing arrow keys to
+    " extend the selection in visual mode
+    behave mswin
+    set keymodel-=stopsel
 
-  if !has('nvim')
-    set pythonthreedll=python39.dll
-  endif
+    if !has('nvim')
+        set pythonthreedll=python39.dll
+    endif
 endif
 
 set path+=**
@@ -46,35 +46,36 @@ syntax on
 
 " Install vim-plug
 if has('nvim')
-  " portable neovim path
-  let s:configpath = fnamemodify(stdpath('config'), ':p')
+    " portable neovim path
+    let s:configpath = fnamemodify(stdpath('config'), ':p')
 elseif has('macunix') || has('unix') || has('win32unix')
-  " linux/osx vim path
-  let s:configpath = fnamemodify('~/.vim', ':p')
+    " linux/osx vim path
+    let s:configpath = fnamemodify('~/.vim', ':p')
 elseif has('win32')
-  " windows vim path
-  let s:configpath = fnamemodify($MYVIMRC, ':p:h')
-end
+    " windows vim path
+    let s:configpath = fnamemodify($MYVIMRC, ':p:h')
+endif
 
 let s:plugfilename = s:configpath .. '/autoload/plug.vim'
 let s:vim_settings = s:configpath .. '/settings'
 
 
 if empty(glob(s:plugfilename))
-  execute 'silent !curl -fLo' shellescape(s:plugfilename) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    execute 'silent !curl -fLo' shellescape(s:plugfilename) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
 
 " Conjure
 Plug 'Olical/conjure', {'tag': 'v4.3.1'}
-
 " Conjure support - jack-in with nrepl dependencies
 Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 if has('nvim')
     Plug 'radenling/vim-dispatch-neovim'
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
 endif
 " Conjure code analysis
 Plug 'dense-analysis/ale'
@@ -97,4 +98,3 @@ function! SourceDirectory(file)
 endfunction
 
 call SourceDirectory(s:vim_settings)
-

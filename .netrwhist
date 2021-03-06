@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/hdalemcbane/src/lisp/Clojure/ring-app'
 let g:netrw_dirhist_3='/mnt/c/Users/dalem/src/elm/elm-test'
 let g:netrw_dirhist_2='C:/Users/dalem/src/elm/knights-tour/src'
 let g:netrw_dirhist_1='C:\Users\dalem\src\elm\knights-tour'
