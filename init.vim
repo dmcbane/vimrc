@@ -74,8 +74,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 if has('nvim')
     Plug 'radenling/vim-dispatch-neovim'
-    Plug 'kyazdani42/nvim-web-devicons' "for file icons
-    Plug 'kyazdani42/nvim-tree.lua'
 endif
 " Conjure code analysis
 Plug 'dense-analysis/ale'
@@ -84,6 +82,7 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
