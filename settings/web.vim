@@ -1,6 +1,7 @@
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-"let g:user_emmet_leader_key = '<C-Y>' " default leader
+let g:user_emmet_leader_key = '<C-,>' " default leader <C-Y>
+" emmet expansion is now C-, , (control comma, comma)
 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
