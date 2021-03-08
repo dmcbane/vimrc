@@ -78,10 +78,17 @@ endif
 " Conjure code analysis
 Plug 'dense-analysis/ale'
 
+" Web development
+Plug 'mattn/emmet-vim' " abbreviation expansion
+Plug 'Yggdroot/indentline' " indent indicator
+Plug 'AndrewRadev/tagalong.vim' " tag replacement
+
+
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
