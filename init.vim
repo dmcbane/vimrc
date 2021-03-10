@@ -89,7 +89,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'liuchengxu/vim-clap'
 
 call plug#end()
 
