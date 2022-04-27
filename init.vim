@@ -67,30 +67,49 @@ endif
 
 call plug#begin()
 
-" Conjure
-Plug 'Olical/conjure', {'tag': 'v4.3.1'}
-" Conjure support - jack-in with nrepl dependencies
-Plug 'tpope/vim-dispatch'
-Plug 'clojure-vim/vim-jack-in'
-if has('nvim')
-    Plug 'radenling/vim-dispatch-neovim'
-endif
-" Conjure code analysis
-Plug 'dense-analysis/ale'
+"" " Conjure
+"" Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+"" " Conjure support - jack-in with nrepl dependencies
+"" Plug 'tpope/vim-dispatch'
+"" Plug 'clojure-vim/vim-jack-in'
+"" if has('nvim')
+""     Plug 'radenling/vim-dispatch-neovim'
+"" endif
+"" " Conjure code analysis
+"" Plug 'dense-analysis/ale'
 
 " Web development
 Plug 'mattn/emmet-vim' " abbreviation expansion
 Plug 'Yggdroot/indentline' " indent indicator
 Plug 'AndrewRadev/tagalong.vim' " tag replacement
 
+" Rails development
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'dense-analysis/ale'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
-Plug 'lifepillar/vim-gruvbox8'
+
+" Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
+" Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'liuchengxu/vim-clap'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
