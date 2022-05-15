@@ -12,7 +12,7 @@ let g:lightline = {
       \ 'component': { 'charvaluehex': '0x%B' },
       \ 'component_function': { 'fileformat': 'LightlineFileformat',
       \                         'filetype': 'LightlineFiletype',
-      \                         'gitbranch': 'fugitive#head',
+      \                         'gitbranch': 'FugitiveHead',
       \                         'readonly': 'LightlineReadonly',
       \                       },
       \ }
