@@ -1,5 +1,5 @@
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left':  [ [ 'mode', 'paste' ],
       \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
@@ -12,7 +12,7 @@ let g:lightline = {
       \ 'component': { 'charvaluehex': '0x%B' },
       \ 'component_function': { 'fileformat': 'LightlineFileformat',
       \                         'filetype': 'LightlineFiletype',
-      \                         'gitbranch': 'fugitive#head',
+      \                         'gitbranch': 'FugitiveHead',
       \                         'readonly': 'LightlineReadonly',
       \                       },
       \ }
@@ -38,4 +38,3 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-set laststatus=2

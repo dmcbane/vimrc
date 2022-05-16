@@ -1,2 +1,4 @@
-set background=dark
-colorscheme gruvbox8_hard
+set background=light
+colorscheme solarized
+set cursorcolumn
+set cursorline
