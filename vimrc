@@ -13,6 +13,7 @@ set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start " Fix backspace indent
 set clipboard=unnamedplus
+set laststatus=2
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -56,8 +57,8 @@ elseif has('win32')
     let s:configpath = fnamemodify($MYVIMRC, ':p:h')
 endif
 
-let s:plugfilename = s:configpath .. 'autoload/plug.vim'
-let s:vim_settings = s:configpath .. 'settings'
+let s:plugfilename = s:configpath . 'autoload/plug.vim'
+let s:vim_settings = s:configpath . 'settings'
 
 " let g:dale_configpath=s:configpath
 " let g:dale_plugfilename=s:plugfilename
@@ -93,14 +94,17 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-" Plug 'dense-analysis/ale'
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+Plug 'dense-analysis/ale'
+"" if has('nvim')
+""   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"" else
+""     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+""     Plug 'roxma/nvim-yarp'
+""     Plug 'roxma/vim-hug-neovim-rpc'
+"" endif
+"" let g:deoplete#enable_at_startup = 1
+"" let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+"" let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 " Plug 'Shougo/neosnippet.vim'
 " Plug 'Shougo/neosnippet-snippets'
 
