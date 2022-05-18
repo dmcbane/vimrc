@@ -1,5 +1,4 @@
 " General Settings
-set nocompatible
 if has('win32') && !has('nvim')
     source $VIMRUNTIME/vimrc_example.vim
     source $VIMRUNTIME/mswin.vim
@@ -7,6 +6,7 @@ endif
 
 set hidden " TextEdit might fail if hidden is not set.
 set encoding=utf-8
+scriptencoding utf-8
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
@@ -102,11 +102,11 @@ Plug 'dense-analysis/ale'
 ""     Plug 'roxma/nvim-yarp'
 ""     Plug 'roxma/vim-hug-neovim-rpc'
 "" endif
-"" let g:deoplete#enable_at_startup = 1
-"" let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
-"" let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 " Plug 'Shougo/neosnippet.vim'
 " Plug 'Shougo/neosnippet-snippets'
+"
+" Conquer of Completion instead of Deoplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 " Plug 'lifepillar/vim-gruvbox8'
