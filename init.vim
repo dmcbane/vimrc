@@ -1,5 +1,4 @@
 " General Settings
-set nocompatible
 if has('win32') && !has('nvim')
     source $VIMRUNTIME/vimrc_example.vim
     source $VIMRUNTIME/mswin.vim
@@ -7,12 +6,14 @@ endif
 
 set hidden " TextEdit might fail if hidden is not set.
 set encoding=utf-8
+scriptencoding utf-8
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start " Fix backspace indent
 set clipboard=unnamedplus
+set laststatus=2
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -56,9 +57,12 @@ elseif has('win32')
     let s:configpath = fnamemodify($MYVIMRC, ':p:h')
 endif
 
-let s:plugfilename = s:configpath .. '/autoload/plug.vim'
-let s:vim_settings = s:configpath .. '/settings'
+let s:plugfilename = s:configpath . 'autoload/plug.vim'
+let s:vim_settings = s:configpath . 'settings'
 
+" let g:dale_configpath=s:configpath
+" let g:dale_plugfilename=s:plugfilename
+" let g:dale_vim_settings=s:vim_settings
 
 if empty(glob(s:plugfilename))
     execute 'silent !curl -fLo' shellescape(s:plugfilename) ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -90,16 +94,19 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-" Plug 'dense-analysis/ale'
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+Plug 'dense-analysis/ale'
+"" if has('nvim')
+""   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"" else
+""     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+""     Plug 'roxma/nvim-yarp'
+""     Plug 'roxma/vim-hug-neovim-rpc'
+"" endif
 " Plug 'Shougo/neosnippet.vim'
 " Plug 'Shougo/neosnippet-snippets'
+"
+" Conquer of Completion instead of Deoplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 " Plug 'lifepillar/vim-gruvbox8'
@@ -111,6 +118,9 @@ Plug 'tpope/vim-vinegar'
 " Plug 'liuchengxu/vim-clap'
 Plug 'altercation/vim-colors-solarized'
 Plug 'gabrielelana/vim-markdown'
+
+" Go Development
+Plug 'fatih/vim-go'
 
 call plug#end()
 
