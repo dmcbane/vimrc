@@ -122,6 +122,9 @@ Plug 'gabrielelana/vim-markdown'
 " Go Development
 Plug 'fatih/vim-go'
 
+" Haxe Development
+Plug 'jdonaldson/vaxe'
+
 call plug#end()
 
 let mapleader=','
