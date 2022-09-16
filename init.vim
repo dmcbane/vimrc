@@ -84,7 +84,7 @@ call plug#begin()
 
 " Web development
 Plug 'mattn/emmet-vim' " abbreviation expansion
-Plug 'Yggdroot/indentline' " indent indicator
+"" Plug 'Yggdroot/indentline' " indent indicator
 " Plug 'AndrewRadev/tagalong.vim' " tag replacement
 
 " Rails development
@@ -109,18 +109,22 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
-" Plug 'lifepillar/vim-gruvbox8'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
-" Plug 'shinchu/lightline-gruvbox.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 " Plug 'liuchengxu/vim-clap'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'gabrielelana/vim-markdown'
 
 " Go Development
 Plug 'fatih/vim-go'
+
+" Common Lisp
+Plug 'vlime/vlime', {'rtp': 'vim/'}
+
 
 call plug#end()
 
