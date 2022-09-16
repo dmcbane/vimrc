@@ -1,5 +1,5 @@
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'gruvbox8',
       \ 'active': {
       \   'left':  [ [ 'mode', 'paste' ],
       \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
