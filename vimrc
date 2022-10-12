@@ -109,9 +109,10 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'acepukas/vim-zenburn'
+" Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
+" Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
