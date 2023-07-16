@@ -136,6 +136,19 @@ if has('termguicolors')
 endif
 let g:use_gui = exists('g:neovide') || has('gui_running') || (has('termguicolors') && &termguicolors)
 
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+
+
 " Function to source all .vim files in directory
 function! SourceDirectory(file)
     for l:fpath in split(globpath(a:file, '*.vim'), '\n')

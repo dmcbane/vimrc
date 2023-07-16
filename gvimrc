@@ -1,1 +1,1 @@
-set guifont=JetBrainsMono-Regular:h18
+set guifont=JuliaMono\ 16
