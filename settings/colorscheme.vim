@@ -3,3 +3,6 @@ set background=dark
 colorscheme zenburn
 set cursorcolumn
 set cursorline
+if &diff
+    colorscheme nord
+endif
