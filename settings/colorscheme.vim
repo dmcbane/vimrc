@@ -1,8 +1,8 @@
 set background=dark
 " colorscheme gruvbox8
-colorscheme zenburn
+" colorscheme zenburn
 set cursorcolumn
 set cursorline
-if &diff
+" if &diff
     colorscheme nord
-endif
+" endif

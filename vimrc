@@ -106,7 +106,7 @@ Plug 'dense-analysis/ale'
 " Plug 'Shougo/neosnippet-snippets'
 "
 " Conquer of Completion instead of Deoplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 Plug 'acepukas/vim-zenburn'
