@@ -2,3 +2,4 @@
 /plugged/
 .*~
 .netrwhist
+/node_modules/

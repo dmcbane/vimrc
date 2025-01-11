@@ -32,11 +32,11 @@ set shortmess+=c
 if has('win32')
     " setup MS Windows key bahaviors with the exception of allowing arrow keys to
     " extend the selection in visual mode
-    behave mswin
+    """"" behave mswin
     set keymodel-=stopsel
 
     if !has('nvim')
-        set pythonthreedll=python39.dll
+        set pythonthreedll=python312.dll
     endif
 endif
 
@@ -112,6 +112,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 " Plug 'shinchu/lightline-gruvbox.vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
