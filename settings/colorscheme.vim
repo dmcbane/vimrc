@@ -4,5 +4,7 @@ set background=dark
 set cursorcolumn
 set cursorline
 " if &diff
-    colorscheme nord
+"    colorscheme nord
 " endif
+colorscheme base16-gruvbox-dark-hard
+

@@ -10,7 +10,8 @@ if (exists('g:use_gui') && g:use_gui)
         set guifont=Meslo\ LG\ S\ for\ Powerline:h20
     elseif has('gui_win32')
         " windows
-        set guifont=Noto_Mono_for_Powerline:h16:cANSI:qDRAFT
+        " set guifont=Noto_Mono_for_Powerline:h16:cANSI:qDRAFT
+        set guifont=Hack_Nerd_Font_Mono:h16:cANSI:qDRAFT
     endif
 endif
 
