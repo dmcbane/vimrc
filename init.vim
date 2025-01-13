@@ -127,6 +127,8 @@ Plug 'fatih/vim-go'
 " Common Lisp
 Plug 'vlime/vlime', {'rtp': 'vim/'}
 
+" Recent Files upgrade
+Plug 'gpanders/vim-oldfiles'
 
 call plug#end()
 
