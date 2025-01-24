@@ -19,8 +19,8 @@ hinting = "full"
 edging = "antialias"
 
 [[font.normal]]
-family = "Hack Nerd Font"
-style = "Normal"
+family = "Hack Nerd Font Mono"
+style = "Regular"
 
 # You can set a different font for fallback
 [[font.normal]]
@@ -28,7 +28,7 @@ family = "JuliaMono Nerd Font Mono"
 style = "Regular"
 
 [[font.bold]]
-family = "Hack Nerd Font"
+family = "Hack Nerd Font Mono"
 style = "Bold"
 
 # No need to specify fallback in every variant, if omitted or specified here
