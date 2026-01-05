@@ -106,7 +106,7 @@ Plug 'dense-analysis/ale'
 " Plug 'Shougo/neosnippet-snippets'
 "
 " Conquer of Completion instead of Deoplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 " Plug 'lifepillar/vim-gruvbox8'
@@ -122,10 +122,12 @@ Plug 'tpope/vim-vinegar'
 Plug 'gabrielelana/vim-markdown'
 
 " Go Development
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 
+" Elixir Developmnet
+Plug 'elixir-editors/vim-elixir'
 " Common Lisp
-Plug 'vlime/vlime', {'rtp': 'vim/'}
+" Plug 'vlime/vlime', {'rtp': 'vim/'}
 
 " Recent Files upgrade
 Plug 'gpanders/vim-oldfiles'
