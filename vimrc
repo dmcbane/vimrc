@@ -36,7 +36,7 @@ if has('win32')
     set keymodel-=stopsel
 
     if !has('nvim')
-        set pythonthreedll=python39.dll
+       set pythonthreedll=python314.dll
     endif
 endif
 
@@ -125,9 +125,13 @@ Plug 'gabrielelana/vim-markdown'
 " Go Development
 Plug 'fatih/vim-go'
 
+" Elixir Development
+Plug 'elixir-editors/vim-elixir'
 " Common Lisp
-Plug 'vlime/vlime', {'rtp': 'vim/'}
+" Plug 'vlime/vlime', {'rtp': 'vim/'}
 
+" Recent Files upgrade
+Plug 'gpanders/vim-oldfiles'
 
 call plug#end()
 
@@ -138,6 +142,19 @@ if has('termguicolors')
     set termguicolors
 endif
 let g:use_gui = exists('g:neovide') || has('gui_running') || (has('termguicolors') && &termguicolors)
+
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
+
 
 " Function to source all .vim files in directory
 function! SourceDirectory(file)

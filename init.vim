@@ -32,11 +32,11 @@ set shortmess+=c
 if has('win32')
     " setup MS Windows key bahaviors with the exception of allowing arrow keys to
     " extend the selection in visual mode
-    """"" behave mswin
+    behave mswin
     set keymodel-=stopsel
 
     if !has('nvim')
-        set pythonthreedll=python312.dll
+       set pythonthreedll=python314.dll
     endif
 endif
 
@@ -106,9 +106,10 @@ Plug 'dense-analysis/ale'
 " Plug 'Shougo/neosnippet-snippets'
 "
 " Conquer of Completion instead of Deoplete
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
+Plug 'acepukas/vim-zenburn'
 " Plug 'lifepillar/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 " Plug 'shinchu/lightline-gruvbox.vim'
@@ -122,9 +123,9 @@ Plug 'tpope/vim-vinegar'
 Plug 'gabrielelana/vim-markdown'
 
 " Go Development
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
-" Elixir Developmnet
+" Elixir Development
 Plug 'elixir-editors/vim-elixir'
 " Common Lisp
 " Plug 'vlime/vlime', {'rtp': 'vim/'}
