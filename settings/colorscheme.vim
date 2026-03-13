@@ -6,5 +6,4 @@ set cursorline
 " if &diff
 "    colorscheme nord
 " endif
-colorscheme base16-gruvbox-dark-hard
-
+colorscheme base16-papercolor-dark
