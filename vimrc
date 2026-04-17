@@ -36,7 +36,7 @@ if has('win32')
     set keymodel-=stopsel
 
     if !has('nvim')
-        set pythonthreedll=python312.dll
+       set pythonthreedll=python314.dll
     endif
 endif
 
@@ -125,9 +125,13 @@ Plug 'gabrielelana/vim-markdown'
 " Go Development
 Plug 'fatih/vim-go'
 
+" Elixir Development
+Plug 'elixir-editors/vim-elixir'
 " Common Lisp
-Plug 'vlime/vlime', {'rtp': 'vim/'}
+" Plug 'vlime/vlime', {'rtp': 'vim/'}
 
+" Recent Files upgrade
+Plug 'gpanders/vim-oldfiles'
 
 call plug#end()
 
