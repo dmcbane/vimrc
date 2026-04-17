@@ -32,11 +32,11 @@ set shortmess+=c
 if has('win32')
     " setup MS Windows key bahaviors with the exception of allowing arrow keys to
     " extend the selection in visual mode
-    behave mswin
+    """"" behave mswin
     set keymodel-=stopsel
 
     if !has('nvim')
-        set pythonthreedll=python39.dll
+        set pythonthreedll=python312.dll
     endif
 endif
 
@@ -106,7 +106,7 @@ Plug 'dense-analysis/ale'
 " Plug 'Shougo/neosnippet-snippets'
 "
 " Conquer of Completion instead of Deoplete
-"" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 Plug 'acepukas/vim-zenburn'
@@ -138,6 +138,18 @@ if has('termguicolors')
     set termguicolors
 endif
 let g:use_gui = exists('g:neovide') || has('gui_running') || (has('termguicolors') && &termguicolors)
+
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 " Function to source all .vim files in directory
 function! SourceDirectory(file)
