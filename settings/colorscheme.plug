@@ -1,8 +1,6 @@
 
 " Plug 'acepukas/vim-zenburn'
 Plug 'lifepillar/vim-gruvbox8'
-" Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'

@@ -1,9 +1,9 @@
 set background=dark
-" colorscheme gruvbox8
+colorscheme gruvbox8
 " colorscheme zenburn
 set cursorcolumn
 set cursorline
 " if &diff
 "    colorscheme nord
 " endif
-colorscheme base16-papercolor-dark
+" colorscheme base16-papercolor-dark
