@@ -1,0 +1,4 @@
+" Web development
+Plug 'mattn/emmet-vim' " abbreviation expansion
+"" Plug 'Yggdroot/indentline' " indent indicator
+" Plug 'AndrewRadev/tagalong.vim' " tag replacement

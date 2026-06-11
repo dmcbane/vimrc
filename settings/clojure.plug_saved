@@ -1,0 +1,12 @@
+" Conjure
+Plug 'Olical/conjure', {'tag': 'v4.3.1'}
+" Conjure support - jack-in with nrepl dependencies
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
+if has('nvim')
+    Plug 'radenling/vim-dispatch-neovim'
+endif
+" Conjure code analysis
+Plug 'dense-analysis/ale'
+
+Plug 'tpope/vim-surround' " delete/change/add parenthesis

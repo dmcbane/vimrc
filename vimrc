@@ -78,67 +78,7 @@ endif
 
 call plug#begin()
 
-"" " Conjure
-"" Plug 'Olical/conjure', {'tag': 'v4.3.1'}
-"" " Conjure support - jack-in with nrepl dependencies
-"" Plug 'tpope/vim-dispatch'
-"" Plug 'clojure-vim/vim-jack-in'
-"" if has('nvim')
-""     Plug 'radenling/vim-dispatch-neovim'
-"" endif
-"" " Conjure code analysis
-"" Plug 'dense-analysis/ale'
-
-" Web development
-Plug 'mattn/emmet-vim' " abbreviation expansion
-"" Plug 'Yggdroot/indentline' " indent indicator
-" Plug 'AndrewRadev/tagalong.vim' " tag replacement
-
-" Rails development
-Plug 'preservim/nerdtree'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-rails'
-Plug 'tpope/vim-endwise'
-Plug 'dense-analysis/ale'
-"" if has('nvim')
-""   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"" else
-""     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-""     Plug 'roxma/nvim-yarp'
-""     Plug 'roxma/vim-hug-neovim-rpc'
-"" endif
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
-"
-" Conquer of Completion instead of Deoplete
-"" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
-Plug 'acepukas/vim-zenburn'
-" Plug 'lifepillar/vim-gruvbox8'
-Plug 'itchyny/lightline.vim'
-" Plug 'shinchu/lightline-gruvbox.vim'
-" Plug 'arcticicestudio/nord-vim'
-Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
-" Plug 'liuchengxu/vim-clap'
-" Plug 'altercation/vim-colors-solarized'
-Plug 'gabrielelana/vim-markdown'
-
-" Go Development
-Plug 'fatih/vim-go'
-
-" Elixir Development
-Plug 'elixir-editors/vim-elixir'
-" Common Lisp
-" Plug 'vlime/vlime', {'rtp': 'vim/'}
-
-" Recent Files upgrade
-Plug 'gpanders/vim-oldfiles'
+call SourceDirectory(s:vim_settings, '*.plug')
 
 call plug#end()
 
