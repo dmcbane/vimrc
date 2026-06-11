@@ -45,6 +45,13 @@ set path+=**
 filetype plugin indent on
 syntax on
 
+" Function to source all files matching glob in directory
+function! SourceDirectory(folder, glob)
+    for l:fpath in split(globpath(a:folder, a:glob), '\n')
+        exe 'source' l:fpath
+    endfor
+endfunction
+
 " Install vim-plug
 if has('nvim')
     " portable neovim path
@@ -156,11 +163,4 @@ endfunction
 vnoremap ~ y:call setreg('', TwiddleCase(@"), getregtype(''))<CR>gv""Pgv
 
 
-" Function to source all .vim files in directory
-function! SourceDirectory(file)
-    for l:fpath in split(globpath(a:file, '*.vim'), '\n')
-        exe 'source' l:fpath
-    endfor
-endfunction
-
-call SourceDirectory(s:vim_settings)
+call SourceDirectory(s:vim_settings, '*.vim')

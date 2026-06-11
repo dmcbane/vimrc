@@ -2,9 +2,14 @@ function! EditInitializationFiles()
     exe 'edit $MYVIMRC'
     let l:configpath = fnamemodify($MYVIMRC, ':p:h')
     let l:vim_settings = l:configpath . '/settings'
+    let l:vimrc = l:configpath . '/vimrc'
+
+    if filereadable(l:vimrc) && !(bufloaded(fnamemodify(l:vimrc, ':p')))
+        exe 'tabnew ' . l:vimrc
+    endif
 
     for s:fpath in split(globpath(l:vim_settings, '*.vim'), '\n')
-        exe 'tabnew' s:fpath
+        exe 'tabnew ' . s:fpath
     endfor
 endfunction
 
