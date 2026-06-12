@@ -1,4 +1,4 @@
-if (exists('g:use_gui') && g:use_gui)
+if (exists('g:use_gui') && g:use_gui) 
     if has('gui_gtk2')
         " linux
         set guifont=JuliaMono\ 16
@@ -13,5 +13,7 @@ if (exists('g:use_gui') && g:use_gui)
         " set guifont=Noto_Mono_for_Powerline:h16:cANSI:qDRAFT
         set guifont=Hack_Nerd_Font_Mono:h16:cANSI:qDRAFT
     endif
+elseif exists('g:neovide')
+    set guifont=Hack_Nerd_Font_Mono:h16:cANSI:qDRAFT
 endif
 
