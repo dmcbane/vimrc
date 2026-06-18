@@ -8,7 +8,12 @@ function! EditInitializationFiles()
         exe 'tabnew ' . l:vimrc
     endif
 
-    for s:fpath in split(globpath(l:vim_settings, '*.vim') + globpath(l:vim_settings, '*.plug'), '\n')
+    " Get all files in directory
+    let l:all_files = split(globpath(l:vim_settings, '*'), "\n")
+    
+    " Filter down to only .txt or .md extensions
+    for s:fpath in sort(filter(all_files, 'v:val =~ "\\.\\(vim\\|plug\\)$"'))
+    "" for s:fpath in split(globpath(l:vim_settings, '*.vim'), '\n')
         exe 'tabnew ' . s:fpath
     endfor
 endfunction
