@@ -8,7 +8,7 @@ function! EditInitializationFiles()
         exe 'tabnew ' . l:vimrc
     endif
 
-    for s:fpath in split(globpath(l:vim_settings, '*.vim'), '\n')
+    for s:fpath in split(globpath(l:vim_settings, '*.vim') + globpath(l:vim_settings, '*.plug'), '\n')
         exe 'tabnew ' . s:fpath
     endfor
 endfunction
