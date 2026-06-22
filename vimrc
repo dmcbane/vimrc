@@ -32,7 +32,7 @@ set shortmess+=c
 if has('win32')
     " setup MS Windows key bahaviors with the exception of allowing arrow keys to
     " extend the selection in visual mode
-    behave mswin
+    """"" behave mswin
     set keymodel-=stopsel
 
     if !has('nvim')

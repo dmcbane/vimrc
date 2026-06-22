@@ -16,6 +16,8 @@ function! EditInitializationFiles()
     "" for s:fpath in split(globpath(l:vim_settings, '*.vim'), '\n')
         exe 'tabnew ' . s:fpath
     endfor
+
+    tabfirst
 endfunction
 
 command! -nargs=0 EditInitFiles call EditInitializationFiles()
