@@ -15,7 +15,7 @@ set backspace=indent,eol,start " Fix backspace indent
 set clipboard=unnamedplus
 set laststatus=2
 
-" Some servers have issues with backup files, see #649
+" Backup files can interfere with some tools; nobackup is a safe default.
 set nobackup
 set nowritebackup
 
@@ -23,10 +23,10 @@ set nowritebackup
 set cmdheight=2
 
 " Having longer updatetime (default is 4000ms = 4 s) leads to
-" noticible delays and poor user experience.
+" noticeable delays and poor user experience.
 set updatetime=300
 
-" Don't pass message to |ins-completion-menu|.
+" Suppress completion-menu noise (match N of M, etc.)
 set shortmess+=c
 
 if has('win32')
