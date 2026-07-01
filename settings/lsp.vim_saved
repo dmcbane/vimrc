@@ -1,0 +1,31 @@
+" Native LSP + blink.cmp configuration scaffold
+" DISABLED by default (_saved). Rename to lsp.vim to activate alongside lsp.plug.
+"
+" Prereqs:
+"   go install golang.org/x/tools/gopls@latest          (Go LSP)
+"   Mix install elixir-ls or use :MasonInstall elixir-ls (Elixir LSP)
+"
+scriptencoding utf-8
+if !has('nvim')
+    finish
+endif
+
+" --- blink.cmp (completion) ---
+lua << LUAEOF
+require('blink.cmp').setup({
+    keymap = { preset = 'default' },
+    appearance = { use_nvim_cmp_as_default = false },
+    sources = { default = { 'lsp', 'path', 'buffer' } },
+})
+LUAEOF
+
+" --- nvim-lspconfig (language servers) ---
+lua << LUAEOF
+local lspconfig = require('lspconfig')
+
+-- Go: requires `gopls` on PATH
+lspconfig.gopls.setup({})
+
+-- Elixir: requires `elixir-ls` on PATH (or via Mason)
+-- lspconfig.elixirls.setup({ cmd = { 'elixir-ls' } })
+LUAEOF
