@@ -1,0 +1,12 @@
+" Native Neovim LSP + blink.cmp completion scaffold
+" DISABLED by default (_saved). Rename to lsp.plug to activate.
+"
+" Requires: language servers installed separately (gopls, elixir-ls, etc.)
+" Requires: Neovim 0.9+ (blink.cmp); Neovim 0.12+ recommended for native autocomplete
+"
+" This is Option A from the 2026-Q3 audit LSP discussion.
+" See: settings/lsp.vim_saved for keymaps and server configuration.
+if has('nvim')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'saghen/blink.cmp', {'tag': 'v1.*'}
+endif
