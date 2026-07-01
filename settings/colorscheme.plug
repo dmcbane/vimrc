@@ -1,6 +1,7 @@
 
 " Plug 'acepukas/vim-zenburn'
-Plug 'lifepillar/vim-gruvbox8'
+" Plug 'lifepillar/vim-gruvbox8'  " ARCHIVED 2026-03-11 — read-only, moved to Codeberg; no GitHub updates
+Plug 'sainnhe/gruvbox-material'   " actively maintained Gruvbox variant; Vim + Neovim compatible
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'
