@@ -1,5 +1,6 @@
 set background=dark
-colorscheme gruvbox8
+" colorscheme gruvbox8
+colorscheme onedark
 " colorscheme zenburn
 set cursorcolumn
 set cursorline
