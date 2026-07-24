@@ -48,10 +48,14 @@ return {
       },
     })
 
-    -- Install (if missing) and auto-enable the servers above.
+    -- Install (if missing) and auto-enable the servers above. Whitelisting
+    -- automatic_enable to `servers` (rather than `true`) prevents mason tools
+    -- that happen to ship an LSP mode — e.g. stylua's `stylua --lsp` — from
+    -- being started as redundant language servers; stylua is used only as a
+    -- conform.nvim formatter.
     require("mason-lspconfig").setup({
       ensure_installed = servers,
-      automatic_enable = true,
+      automatic_enable = servers,
     })
 
     -- Buffer-local keymaps, set when a server attaches.
