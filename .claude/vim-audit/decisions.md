@@ -25,6 +25,20 @@ Reason: Commit dcb6e34 ("autostart plug - how did this disappear") shows I notic
 this file vanish and deliberately restored all 2877 lines. Grep-unused does not
 mean unwanted. Never auto-delete; review-PR only if ever proposed. Applies to B10.
 
+### B5 (Vimscript → Lua rewrite) — accepted, Neovim-only  (2026-07-24)
+Reason: The Neovim side was migrated from Vimscript to a modern Lua config on the
+`neovim-lua-migration` branch. Neovim now loads `init.lua` (lazy.nvim, `lua/`);
+`init.vim` was removed (Neovim cannot have both init.vim and init.lua). Classic
+Vim intentionally stays on `vimrc` + vim-plug + `settings/*` — those files, and
+every NEVER-TOUCH item (TwiddleCase, SourceDirectory, initfiles/ReloadVimrc,
+elixir mix-format, per-ft indents, NERDTree autocmds, vim-plug bootstrap), are
+untouched. Plugin equivalences on the Neovim side: lightline→lualine,
+NERDTree/netrw→neo-tree, vim-clap/vim-oldfiles→telescope, syntax→treesitter,
+coc/ALE vacuum→native LSP (mason) + blink.cmp, mix-format autocmd→conform.nvim,
+fugitive kept + gitsigns added, emmet-vim→emmet_language_server (LSP).
+The auditor should treat the Neovim Lua config as the live target and no longer
+propose Vimscript-side modernizations for Neovim (they still apply to classic Vim).
+
 <!-- Add your own decisions below in the same format. The auditor treats `rejected`
      as permanent and stops re-suggesting it.
 
