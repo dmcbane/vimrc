@@ -1,5 +1,5 @@
 " General Settings
-if has('win32') && !has('nvim')
+if has('win32')
     source $VIMRUNTIME/vimrc_example.vim
     source $VIMRUNTIME/mswin.vim
 endif
@@ -35,9 +35,7 @@ if has('win32')
     """"" behave mswin
     set keymodel-=stopsel
 
-    if !has('nvim')
-       set pythonthreedll=python314.dll
-    endif
+    set pythonthreedll=python314.dll
 endif
 
 set path+=**
@@ -53,10 +51,7 @@ function! SourceDirectory(folder, glob)
 endfunction
 
 " Install vim-plug
-if has('nvim')
-    " portable neovim path
-    let s:configpath = fnamemodify(stdpath('config'), ':p')
-elseif has('macunix') || has('unix') || has('win32unix')
+if has('macunix') || has('unix') || has('win32unix')
     " linux/osx vim path
     let s:configpath = fnamemodify('~/.vim', ':p')
 elseif has('win32')
@@ -88,7 +83,7 @@ let mapleader=','
 if has('termguicolors')
     set termguicolors
 endif
-let g:use_gui = exists('g:neovide') || has('gui_running') || (has('termguicolors') && &termguicolors)
+let g:use_gui = has('gui_running') || (has('termguicolors') && &termguicolors)
 
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)

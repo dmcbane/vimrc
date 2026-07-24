@@ -3,5 +3,5 @@
 " Plug 'arcticicestudio/nord-vim'
 " Plug 'chriskempson/base16-vim'
 " Plug 'altercation/vim-colors-solarized'
-Plug 'olimorris/onedarkpro.nvim'
+Plug 'joshdick/onedark.vim'
 
