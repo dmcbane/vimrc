@@ -1,0 +1,2 @@
+-- lua/config/autocmds.lua — autocommands.
+-- Populated in Phase 3 (per-filetype indent, project-drawer startup, etc.).

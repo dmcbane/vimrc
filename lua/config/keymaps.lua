@@ -1,0 +1,3 @@
+-- lua/config/keymaps.lua — global key mappings.
+-- Populated in Phase 2 (TwiddleCase, <leader>v edit-init-files, etc.).
+-- Leader is set in init.lua before this file loads.
