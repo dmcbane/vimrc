@@ -13,7 +13,7 @@ path) and loads plugins from `settings/*.plug`. Neovim reads `init.lua` and
 loads the Lua plugin specs under `lua/plugins/`. The two stacks install to
 separate directories and never collide.
 
-> Neovim was migrated from Vimscript to Lua in 2026 (auditor finding B5).
+> Neovim was migrated from Vimscript to Lua in 2026.
 > Classic Vim intentionally remains on the original Vimscript config.
 
 ## Neovim layout (`lua/`)
