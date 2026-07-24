@@ -7,6 +7,7 @@ return {
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
     "mason-org/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim", -- installs formatter CLIs
     "saghen/blink.cmp", -- for completion capabilities
   },
   config = function()
@@ -25,6 +26,12 @@ return {
     }
 
     require("mason").setup()
+
+    -- Non-LSP CLI tools that back conform.nvim (lua/plugins/format.lua).
+    -- Centralised here so every mason-managed install lives in one place.
+    require("mason-tool-installer").setup({
+      ensure_installed = { "stylua", "prettier", "goimports" },
+    })
 
     -- Apply blink.cmp completion capabilities to every server.
     vim.lsp.config("*", {
