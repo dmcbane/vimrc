@@ -3,26 +3,30 @@
 -- This keeps browser preview and adds in-buffer rendering.
 -- (Emmet for web is handled by emmet_language_server in lua/plugins/lsp.lua.)
 return {
-  -- In-buffer rendering of headings, code blocks, tables, checkboxes, etc.
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
+    -- In-buffer rendering of headings, code blocks, tables, checkboxes, etc.
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons",
+        },
+        ft = { "markdown" },
+        opts = {},
     },
-    ft = { "markdown" },
-    opts = {},
-  },
-  -- Live preview in the browser (was settings/markdown.plug).
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-    keys = {
-      { "<leader>mp", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown preview toggle" },
-    },
-  },
+    -- Live preview in the browser
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function(plugin)
+            vim.cmd("lazy load markdown-preview.nvim")
+            vim.fn["mkdp#util#install"]()
+        end,
+    }
+    -- {
+    --     "iamcco/markdown-preview.nvim",
+    --     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    --     ft = { "markdown" },
+    --     build = "cd app && npm install",
+    -- }
 }
