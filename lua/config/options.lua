@@ -31,6 +31,7 @@ opt.signcolumn = "yes" -- always show the sign gutter (no text shift)
 opt.cmdheight = 1 -- was 2 for coc.nvim; 1 is the modern default
 opt.laststatus = 3 -- single global statusline (Neovim 0.7+; pairs with lualine)
 opt.shortmess:append("c") -- don't show completion "match N of M" messages
+opt.showtabline = 0 -- 0: never show, 1: show if >=2 tabs, 2: always show
 
 -- ── Files / backups ──────────────────────────────────────────────────────
 -- Some tools misbehave with backup files; keeping the original defaults.
@@ -45,5 +46,5 @@ opt.undofile = true
 opt.guifont = "JuliaMono Nerd Font,Hack Nerd Font,NotoMono Nerd Font,PT Mono:h16"
 
 if vim.g.neovide then
-  vim.g.neovide_cursor_vfx_mode = "railgun"
+	vim.g.neovide_cursor_vfx_mode = "railgun"
 end

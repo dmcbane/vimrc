@@ -7,11 +7,12 @@ mouse-cursor-icon = "arrow"
 # neovim-bin = "/usr/bin/nvim" # in reality found dynamically on $PATH if unset
 no-multigrid = false
 srgb = false
-tabs = true
+tabs = false
 theme = "auto"
 title-hidden = true
 vsync = true
 wsl = false
+
 
 [font]
 size = 26
