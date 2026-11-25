@@ -3,3 +3,7 @@
 .*~
 .netrwhist
 /node_modules/
+lazy-lock.json
+
+# matugen output: per-machine, regenerated on wallpaper change
+/lua/matugen.lua
