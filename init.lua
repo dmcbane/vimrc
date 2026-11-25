@@ -1,12 +1,7 @@
 -- ~/.config/nvim/init.lua — Neovim (Lua) entry point.
 --
--- This repository is shared between classic Vim and Neovim:
---   * classic Vim  loads  ~/.vim/vimrc        (Vimscript, unchanged)
---   * Neovim       loads  this file           (Lua, modern stack)
---
--- The old Neovim bridge `init.vim` (which just sourced `vimrc`) has been
--- retired here — Neovim cannot have both init.vim and init.lua (E5422).
--- Migration tracked as finding B5 in .claude/vim-audit/.
+-- Migrated in 2026 from a Vimscript config (vimrc + settings/*, vim-plug)
+-- that was shared with classic Vim; those files are retired (see git history).
 --
 -- Structure:
 --   lua/config/options.lua   editor options   (was vimrc + settings/tabs.vim)

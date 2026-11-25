@@ -1,4 +1,4 @@
--- lua/plugins/git.lua — image preview
+-- lua/plugins/image.lua — image preview
 return {
     {
         "3rd/image.nvim",

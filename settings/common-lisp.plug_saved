@@ -1,3 +1,0 @@
-" Common Lisp
-Plug 'vlime/vlime', {'rtp': 'vim/'}
-Plug 'tpope/vim-surround' " delete/change/add parenthesis
