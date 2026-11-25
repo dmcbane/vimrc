@@ -15,7 +15,7 @@ wsl = false
 
 
 [font]
-size = 26
+size = 13
 hinting = "full"
 edging = "antialias"
 

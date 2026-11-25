@@ -43,7 +43,7 @@ opt.undofile = true
 
 -- ── GUI (Neovide, VimR, nvim-qt) ─────────────────────────────────────────
 -- Terminals ignore guifont, so it is safe to set unconditionally.
-opt.guifont = "JuliaMono Nerd Font,Hack Nerd Font,NotoMono Nerd Font,PT Mono:h16"
+opt.guifont = "JuliaMono Nerd Font,Hack Nerd Font,NotoMono Nerd Font,PT Mono:h12"
 
 if vim.g.neovide then
 	vim.g.neovide_cursor_vfx_mode = "railgun"
